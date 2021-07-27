@@ -12,6 +12,7 @@ def parse_file(file_name)
   end
 
   CSV.open("parsed - #{file_name}", "wb") do |new_csv|
+    new_csv << csv.headers.to_a
     csv.each do |row|
       row[4] = parse_date(row[4])
       row[5] = parse_date(row[5])
